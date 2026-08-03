@@ -7,10 +7,18 @@
      PSB         — concorre sozinho no proporcional.
      PDT         — concorre sozinho no proporcional.
      PSOL·Rede   — Federação PSOL Rede, mesma lógica de caixa comum.
+
+   As afirmações são MANDATÁRIAS, não doutrinárias: perguntam o que a pessoa
+   quer que seu deputado FAÇA com o mandato — prioridade, custo político e
+   ordem das urgências —, não o que ela acha ideal em abstrato.
+   Evita-se citar marcas associadas a um partido (nomes de programas, autoria
+   de ações, cidades-vitrine) no enunciado; essas referências aparecem só na
+   justificativa, depois da resposta.
+
    Posições codificadas pelo autor a partir do guia comparativo e de posições
-   públicas verificadas (corte informativo: 20/07/2026). Escala: −2 a +2.
-   Como são todos campos de esquerda, os códigos medem sobretudo INTENSIDADE
-   e PRIORIDADE, não direções opostas. Tudo roda localmente no navegador.
+   públicas verificadas. Corte: 03/08/2026 (convenções encerradas em 05/08;
+   registro das candidaturas até 15/08). Escala: −2 a +2.
+   Tudo roda localmente no navegador.
    ========================================================================== */
 
 "use strict";
@@ -30,191 +38,198 @@ const ESCOPO_ROTULO = {
 
 const QUESTOES = [
 
-  /* ---------- pol\u00edtica nacional e economia ---------- */
+  /* ============ como o mandato se relaciona com o governo ============ */
   {
-    eixo: "Governo Lula", escopo: "federal",
-    texto: "Um bom deputado de esquerda deve defender o governo Lula por inteiro, evitando cr\u00edticas p\u00fablicas que possam enfraquec\u00ea-lo.",
-    ctx: "O contr\u00e1rio disso \u00e9 o chamado \u201capoio cr\u00edtico\u201d: votar com o governo contra a direita, mas cobr\u00e1-lo abertamente quando discorda.",
+    eixo: "Governo \u00b7 Lealdade", escopo: "federal",
+    texto: "Quero um deputado que sustente o governo federal sem cr\u00edticas p\u00fablicas, deixando as diverg\u00eancias para conversas internas.",
+    ctx: "A alternativa \u00e9 o chamado apoio cr\u00edtico: votar com o governo contra a direita, mas cobr\u00e1-lo em p\u00fablico quando discorda.",
     pos: { PT: 2, PSB: 2, PDT: 1, PSOL: -1 },
-    just: "PT\u00b7PCdoB\u00b7PV e PSB s\u00e3o o n\u00facleo do governo (a vice-presid\u00eancia \u00e9 do PSB). O PDT \u00e9 aliado, com desgastes recentes. O PSOL\u00b7Rede pratica o apoio cr\u00edtico: vota junto na maioria das pautas, mas cobra pela esquerda \u2014 caso do arcabou\u00e7o fiscal e do petr\u00f3leo na Amaz\u00f4nia."
+    just: "PT\u00b7PCdoB\u00b7PV e PSB s\u00e3o o n\u00facleo do governo \u2014 a vice-presid\u00eancia \u00e9 do PSB \u2014 e t\u00eam pouca margem para o confronto p\u00fablico. O PDT reatou com Lula ap\u00f3s crises pr\u00f3prias. O PSOL\u00b7Rede vota com o governo na maioria das pautas e o cobra abertamente pela esquerda."
   },
   {
-    eixo: "Economia \u00b7 Regras fiscais", escopo: "federal",
-    texto: "O governo acerta ao respeitar limites de gastos \u2014 o chamado arcabou\u00e7o fiscal \u2014 mesmo que isso adie investimentos sociais.",
-    ctx: "Arcabou\u00e7o fiscal \u00e9 a regra que limita quanto as despesas federais podem crescer por ano, para controlar a d\u00edvida p\u00fablica.",
-    pos: { PT: 1, PSB: 1, PDT: 0, PSOL: -2 },
-    just: "A gest\u00e3o Haddad (PT) fez do arcabou\u00e7o seu piso de credibilidade, com o PSB junto. O PDT aceita com reservas trabalhistas. O PSOL\u00b7Rede votou contra e defende revogar limites que travem o gasto social."
+    eixo: "Or\u00e7amento \u00b7 Prioridade", escopo: "federal",
+    texto: "Se for preciso escolher, prefiro que meu deputado vote por ampliar o gasto social mesmo que isso rompa os limites de gasto vigentes.",
+    ctx: "As regras fiscais em vigor limitam quanto as despesas federais podem crescer por ano. Furar esse limite exige mudar a regra e costuma provocar rea\u00e7\u00e3o do mercado.",
+    pos: { PT: -1, PSB: -1, PDT: 0, PSOL: 2 },
+    just: "O n\u00facleo econ\u00f4mico do governo fez do respeito \u00e0 regra fiscal seu piso de credibilidade, e as bancadas de PT\u00b7PCdoB\u00b7PV e PSB o acompanham. O PDT resiste quando o corte atinge aposentadoria e sal\u00e1rio. O PSOL\u00b7Rede vota contra a regra e prop\u00f5e revog\u00e1-la."
   },
   {
-    eixo: "Economia \u00b7 Impostos", escopo: "federal",
-    texto: "O Brasil deve criar impostos sobre grandes fortunas e heran\u00e7as milion\u00e1rias, mesmo enfrentando forte rea\u00e7\u00e3o do mercado financeiro.",
-    ctx: "Hoje o pa\u00eds n\u00e3o taxa grandes fortunas; a taxa\u00e7\u00e3o de heran\u00e7as \u00e9 baixa em compara\u00e7\u00e3o internacional.",
+    eixo: "Tributa\u00e7\u00e3o \u00b7 Prioridade", escopo: "federal",
+    texto: "Diante de um rombo nas contas p\u00fablicas, quero que meu deputado gaste capital pol\u00edtico tentando taxar os mais ricos, em vez de aceitar cortes de despesa.",
     pos: { PT: 1, PSB: 0, PDT: 1, PSOL: 2 },
-    just: "Bandeira hist\u00f3rica de todo o campo, com intensidades diferentes: o PSOL\u00b7Rede a coloca no centro do programa; PT\u00b7PCdoB\u00b7PV e PDT a mant\u00eam no papel enquanto priorizam reformas negoci\u00e1veis (como a isen\u00e7\u00e3o do IR at\u00e9 R$ 5 mil); o PSB \u00e9 o mais cauteloso com o mercado."
+    just: "\u00c9 a primeira resposta do PSOL\u00b7Rede em qualquer aperto fiscal. PT\u00b7PCdoB\u00b7PV e PDT defendem a tese, mas priorizam o que \u00e9 negoci\u00e1vel na Casa. O PSB \u00e9 o mais atento \u00e0 rea\u00e7\u00e3o do mercado e o menos disposto a comprar essa briga."
   },
   {
-    eixo: "Estilo \u00b7 Centr\u00e3o", escopo: "federal",
-    texto: "Para aprovar projetos importantes, \u00e9 aceit\u00e1vel negociar cargos e emendas com o chamado Centr\u00e3o.",
-    ctx: "Centr\u00e3o \u00e9 o bloco de partidos sem ideologia fixa que apoia qualquer governo em troca de cargos e verbas do or\u00e7amento.",
-    pos: { PT: 1, PSB: 1, PDT: 0, PSOL: -2 },
-    just: "PT\u00b7PCdoB\u00b7PV e PSB governam e negociam \u2014 \u00e9 o pre\u00e7o da governabilidade que aceitam pagar. O PSOL\u00b7Rede faz da recusa a esse m\u00e9todo uma marca de identidade. O PDT oscila conforme a conjuntura."
+    eixo: "M\u00e9todo \u00b7 Negocia\u00e7\u00e3o", escopo: "federal",
+    texto: "Aceito que meu deputado negocie cargos e verbas com partidos fisiol\u00f3gicos, se for o pre\u00e7o de aprovar o que interessa.",
+    ctx: "Partidos fisiol\u00f3gicos s\u00e3o os que apoiam qualquer governo em troca de cargos e fatias do or\u00e7amento; hoje eles controlam boa parte dos votos no Congresso.",
+    pos: { PT: 1, PSB: 1, PDT: 1, PSOL: -2 },
+    just: "PT\u00b7PCdoB\u00b7PV, PSB e PDT governam e negociam \u2014 \u00e9 o pre\u00e7o da governabilidade que aceitam pagar. A recusa a esse m\u00e9todo \u00e9 marca de identidade do PSOL\u00b7Rede, e explica boa parte de seu isolamento no Congresso."
   },
+  {
+    eixo: "M\u00e9todo \u00b7 Emendas", escopo: "ambos",
+    texto: "Quero um deputado que traga verbas e obras para a minha regi\u00e3o, mesmo que para isso precise jogar o jogo das emendas parlamentares.",
+    ctx: "Emendas s\u00e3o fatias do or\u00e7amento que cada parlamentar direciona; viraram a principal moeda de troca da pol\u00edtica brasileira.",
+    pos: { PT: 1, PSB: 1, PDT: 1, PSOL: -2 },
+    just: "As m\u00e1quinas territoriais do campo \u2014 sobretudo na Baixada e no interior \u2014 operam nessa l\u00f3gica sem constrangimento. O PSOL\u00b7Rede usa emendas, mas fez da den\u00fancia do or\u00e7amento como moeda de troca uma bandeira permanente."
+  },
+
+  /* ============ trabalho, estatais, ambiente ============ */
   {
     eixo: "Trabalho \u00b7 Jornada", escopo: "federal",
-    texto: "O Congresso deve acabar com a escala 6x1 e reduzir a jornada m\u00e1xima de trabalho, mesmo com resist\u00eancia das empresas.",
-    ctx: "Na escala 6x1, o trabalhador folga apenas um dia por semana. H\u00e1 uma proposta de emenda constitucional em debate para mudar isso.",
-    pos: { PT: 1, PSB: 0, PDT: 1, PSOL: 2 },
-    just: "A PEC do fim da 6x1 nasceu de mandato do PSOL (Erika Hilton) e virou s\u00edmbolo. O trabalhismo do PDT e a base sindical do PT\u00b7PCdoB\u00b7PV apoiam; o n\u00facleo econ\u00f4mico do governo e o PSB pedem transi\u00e7\u00e3o mais lenta pelo custo \u00e0s empresas."
+    texto: "Mesmo com a redu\u00e7\u00e3o da jornada j\u00e1 aprovada na C\u00e2mara, quero que meu deputado continue pressionando por uma jornada ainda menor e por prazo mais curto de implanta\u00e7\u00e3o.",
+    ctx: "Em 2026 a C\u00e2mara aprovou o fim da escala de seis dias de trabalho por um de folga, com jornada de 40 horas em cinco dias e mais de um ano de transi\u00e7\u00e3o.",
+    pos: { PT: 0, PSB: -1, PDT: 1, PSOL: 2 },
+    just: "A proposta original nasceu de um movimento de trabalhadores encampado por mandatos do PSOL\u00b7Rede, que consideram o texto final t\u00edmido \u2014 o vereador carioca que idealizou a campanha rompeu com o relat\u00f3rio e disputa vaga na C\u00e2mara. O trabalhismo do PDT quer avan\u00e7ar; PT\u00b7PCdoB\u00b7PV e PSB tratam o resultado como vit\u00f3ria a consolidar."
   },
   {
-    eixo: "Economia \u00b7 Estatais", escopo: "federal",
-    texto: "Empresas p\u00fablicas estrat\u00e9gicas \u2014 como Petrobras, Correios e bancos p\u00fablicos \u2014 n\u00e3o devem ser privatizadas em nenhuma hip\u00f3tese.",
+    eixo: "Estatais", escopo: "federal",
+    texto: "Quero um deputado que use o mandato para barrar qualquer privatiza\u00e7\u00e3o de empresa p\u00fablica, mesmo que a venda renda dinheiro imediato ao Estado.",
     pos: { PT: 1, PSB: 0, PDT: 2, PSOL: 2 },
-    just: "O nacionalismo do PDT (que contestou na Justi\u00e7a a privatiza\u00e7\u00e3o da Eletrobras) e o estatismo do PSOL\u00b7Rede ocupam o ponto mais alto. O PT\u00b7PCdoB\u00b7PV \u00e9 contra privatizar, mas admite parcerias caso a caso; o PSB \u00e9 o mais flex\u00edvel do campo."
+    just: "O nacionalismo do PDT \u2014 que levou \u00e0 Justi\u00e7a a privatiza\u00e7\u00e3o do setor el\u00e9trico \u2014 e o estatismo do PSOL\u00b7Rede ocupam o ponto mais alto. PT\u00b7PCdoB\u00b7PV \u00e9 contra privatizar, mas admite arranjos caso a caso. O PSB \u00e9 o mais flex\u00edvel do campo."
   },
   {
     eixo: "Ambiente \u00b7 Petr\u00f3leo", escopo: "federal",
-    texto: "O Brasil deveria desistir de explorar petr\u00f3leo perto da foz do rio Amazonas, mesmo abrindo m\u00e3o dessa receita.",
-    ctx: "Em 2025, o governo autorizou a Petrobras a pesquisar petr\u00f3leo na regi\u00e3o, contrariando ambientalistas \u2014 inclusive dentro da pr\u00f3pria base.",
+    texto: "Quero um deputado que se oponha publicamente \u00e0 abertura de novas fronteiras de petr\u00f3leo na Amaz\u00f4nia, mesmo que isso signifique enfrentar o pr\u00f3prio governo que ele apoia.",
+    ctx: "Em 2025 o governo federal autorizou a pesquisa de petr\u00f3leo perto da foz do rio Amazonas, contrariando \u00f3rg\u00e3os ambientais e parte da pr\u00f3pria base.",
     pos: { PT: 0, PSB: 1, PDT: -1, PSOL: 2 },
-    just: "A licen\u00e7a saiu de um governo dividido entre as alas ambientalista e desenvolvimentista \u2014 e note que o PV, sigla ambientalista, est\u00e1 dentro da federa\u00e7\u00e3o do PT. O PSB pende ao clima no programa; o PDT \u00e9 desenvolvimentista cl\u00e1ssico; o PSOL\u00b7Rede (a Rede nasceu do ambientalismo de Marina Silva) foi a principal voz contra."
+    just: "O PSOL\u00b7Rede foi a principal voz contra, \u00e0 esquerda do governo \u2014 a Rede nasceu do ambientalismo. O PSB manteve o discurso clim\u00e1tico. A federa\u00e7\u00e3o do PT est\u00e1 rachada, com o PV puxando para o lado ambiental e a ala desenvolvimentista para o outro. O PDT \u00e9 desenvolvimentista sem constrangimento."
   },
 
-  /* ---------- costumes e identidade ---------- */
+  /* ============ costumes, identidade, religi\u00e3o ============ */
   {
-    eixo: "Costumes \u00b7 Aborto", escopo: "federal",
-    texto: "Deputados devem defender abertamente a legaliza\u00e7\u00e3o do aborto, mesmo sabendo que o tema tem alto custo eleitoral.",
-    ctx: "Hoje o aborto s\u00f3 \u00e9 legal no Brasil em tr\u00eas situa\u00e7\u00f5es: estupro, risco de vida da gestante e anencefalia do feto.",
-    pos: { PT: 1, PSB: 0, PDT: -1, PSOL: 2 },
-    just: "O PSOL\u00b7Rede assume a pauta sem rodeios. Na federa\u00e7\u00e3o do PT, muitas parlamentares a defendem (Jandira Feghali, do PCdoB, \u00e9 refer\u00eancia hist\u00f3rica na sa\u00fade da mulher), mas a c\u00fapula evita o tema. PSB e PDT abrigam alas crist\u00e3s e preferem sil\u00eancio."
+    eixo: "Costumes \u00b7 Custo pol\u00edtico", escopo: "federal",
+    texto: "Quero um deputado que defenda publicamente a legaliza\u00e7\u00e3o do aborto, mesmo sabendo que isso custa votos e trava outras negocia\u00e7\u00f5es.",
+    ctx: "Hoje o aborto s\u00f3 \u00e9 legal em tr\u00eas situa\u00e7\u00f5es: estupro, risco de vida da gestante e anencefalia do feto.",
+    pos: { PT: 0, PSB: -1, PDT: -1, PSOL: 2 },
+    just: "O PSOL\u00b7Rede assume a pauta em p\u00fablico, sem c\u00e1lculo eleitoral. Na federa\u00e7\u00e3o do PT h\u00e1 parlamentares que a defendem h\u00e1 d\u00e9cadas, mas a orienta\u00e7\u00e3o pr\u00e1tica \u00e9 n\u00e3o levantar o tema em ano eleitoral. PSB e PDT abrigam alas crist\u00e3s e preferem sil\u00eancio."
   },
   {
-    eixo: "Seguran\u00e7a \u00b7 Drogas", escopo: "federal",
-    texto: "A maconha deveria ser legalizada e regulamentada pelo Estado, para tirar essa fonte de dinheiro do tr\u00e1fico.",
-    ctx: "Legalizar \u00e9 diferente de descriminalizar: na legaliza\u00e7\u00e3o, o Estado regula produ\u00e7\u00e3o e venda, como faz com \u00e1lcool e tabaco.",
+    eixo: "Drogas \u00b7 Prioridade", escopo: "federal",
+    texto: "Quero um deputado que trate a mudan\u00e7a da pol\u00edtica de drogas \u2014 regulamentar em vez de proibir \u2014 como parte central da agenda de seguran\u00e7a.",
+    ctx: "Regulamentar significa o Estado controlar produ\u00e7\u00e3o e venda, como faz com \u00e1lcool e tabaco, retirando o mercado do controle armado.",
     pos: { PT: 0, PSB: 0, PDT: -1, PSOL: 2 },
-    just: "\u00c9 pauta assumida do PSOL\u00b7Rede, tamb\u00e9m como pol\u00edtica de seguran\u00e7a. A federa\u00e7\u00e3o do PT e o PSB t\u00eam defensores individuais, sem posi\u00e7\u00e3o de bancada. No PDT, a base ligada \u00e0s pol\u00edcias empurra na dire\u00e7\u00e3o contr\u00e1ria."
+    just: "Entre os quatro, s\u00f3 o PSOL\u00b7Rede trata isso como pol\u00edtica de seguran\u00e7a, e n\u00e3o como pauta de costumes a evitar. PT\u00b7PCdoB\u00b7PV e PSB t\u00eam defensores individuais sem posi\u00e7\u00e3o de bancada. No PDT, a base ligada \u00e0s pol\u00edcias empurra no sentido oposto."
   },
   {
-    eixo: "Identidade \u00b7 Prioridades", escopo: "ambos",
-    texto: "Pautas de ra\u00e7a, g\u00eanero e diversidade devem ter o mesmo peso que emprego e sal\u00e1rio na atua\u00e7\u00e3o de um deputado de esquerda.",
-    ctx: "\u00c9 o debate \u201cclasse versus identidade\u201d: se as bandeiras identit\u00e1rias devem dividir o palco com as econ\u00f4micas ou vir depois delas.",
-    pos: { PT: 1, PSB: 0, PDT: -1, PSOL: 2 },
-    just: "No PSOL\u00b7Rede, as duas agendas s\u00e3o indissoci\u00e1veis \u2014 \u00e9 a gram\u00e1tica dos mandatos herdeiros de Marielle Franco. A federa\u00e7\u00e3o do PT incorporou o identit\u00e1rio ao programa cl\u00e1ssico. No PDT, pesa a cultura trabalhista de p\u00f4r a classe na frente; o PSB fica no meio."
+    eixo: "Religi\u00e3o \u00b7 Estrat\u00e9gia", escopo: "ambos",
+    texto: "Quero que meu deputado invista tempo em aproximar a esquerda das igrejas evang\u00e9licas, ainda que para isso evite as pautas de costumes.",
+    pos: { PT: 1, PSB: 1, PDT: 1, PSOL: -2 },
+    just: "\u00c9 a aposta declarada da maior parte do campo para disputar um eleitorado decisivo, e PSB e PDT t\u00eam quadros crist\u00e3os \u00e0 vontade nesse di\u00e1logo. O PSOL\u00b7Rede tamb\u00e9m dialoga com as periferias evang\u00e9licas \u2014 tem pastor entre seus candidatos \u2014, mas recusa a troca por sil\u00eancio em direitos."
+  },
+  {
+    eixo: "Agenda \u00b7 Classe e identidade", escopo: "ambos",
+    texto: "Prefiro que meu deputado dedique o mandato a emprego, sal\u00e1rio e custo de vida, deixando as pautas de ra\u00e7a, g\u00eanero e diversidade em segundo plano.",
+    pos: { PT: -1, PSB: 0, PDT: 1, PSOL: -2 },
+    just: "A cultura trabalhista do PDT tende a p\u00f4r a agenda de classe na frente. No PSOL\u00b7Rede as duas s\u00e3o indissoci\u00e1veis, e a bancada carioca \u00e9 majoritariamente formada por mandatos identit\u00e1rios. A federa\u00e7\u00e3o do PT incorporou o identit\u00e1rio ao programa cl\u00e1ssico; o PSB fica no meio."
   },
   {
     eixo: "Identidade \u00b7 LGBTQIA+", escopo: "ambos",
-    texto: "Direitos de pessoas LGBTQIA+ \u2014 incluindo pol\u00edticas espec\u00edficas para pessoas trans \u2014 devem avan\u00e7ar, mesmo gerando confronto com setores religiosos.",
-    ctx: "Exemplos em debate: nome social ampliado, sa\u00fade trans no SUS e vagas em pol\u00edticas p\u00fablicas.",
+    texto: "Quero um deputado que fa\u00e7a da defesa dos direitos LGBTQIA+ \u2014 inclusive de pessoas trans \u2014 uma das bandeiras vis\u00edveis do mandato, e n\u00e3o s\u00f3 um voto discreto no plen\u00e1rio.",
     pos: { PT: 1, PSB: 0, PDT: 0, PSOL: 2 },
-    just: "O PSOL\u00b7Rede lidera em protagonismo (Monica Benicio na cena carioca; Erika Hilton na nacional). A federa\u00e7\u00e3o do PT vem logo atr\u00e1s \u2014 Dani Balbi (PCdoB) \u00e9 a primeira deputada trans da Alerj. PSB e PDT acompanham sem fazer da pauta uma marca."
+    just: "O PSOL\u00b7Rede tem o maior n\u00famero de mandatos LGBTQIA+ do estado e faz disso plataforma p\u00fablica. Na federa\u00e7\u00e3o do PT h\u00e1 protagonismo relevante \u2014 a primeira deputada trans da Alerj foi eleita pelo PCdoB. PSB e PDT acompanham as vota\u00e7\u00f5es sem transformar o tema em marca."
   },
   {
-    eixo: "Identidade \u00b7 Cotas raciais", escopo: "ambos",
-    texto: "As cotas raciais em universidades e concursos p\u00fablicos devem ser ampliadas e tratadas como pol\u00edtica permanente.",
-    ctx: "A Lei de Cotas de 2012 foi revisada em 2023, mantendo e ajustando o sistema nas universidades federais.",
+    eixo: "Identidade \u00b7 Cotas", escopo: "ambos",
+    texto: "Quero um deputado que trabalhe ativamente para ampliar cotas raciais em universidades e concursos, e n\u00e3o apenas para preserv\u00e1-las como est\u00e3o.",
+    ctx: "A lei de cotas nas universidades federais foi revista em 2023 e segue em vigor; a discuss\u00e3o agora \u00e9 sobre estend\u00ea-la a mais \u00e1reas do servi\u00e7o p\u00fablico.",
     pos: { PT: 2, PSB: 1, PDT: 0, PSOL: 2 },
-    just: "As cotas s\u00e3o pol\u00edtica de Estado constru\u00edda nos governos do PT \u2014 e Benedita da Silva \u00e9 s\u00edmbolo dessa trajet\u00f3ria \u2014, com o PSOL\u00b7Rede e seus mandatos negros (Renata Souza, Tal\u00edria Petrone) no mesmo patamar de \u00eanfase. PSB apoia; o PDT apoia sem protagonismo."
+    just: "Cotas s\u00e3o pol\u00edtica de Estado constru\u00edda pelos governos do PT, e a federa\u00e7\u00e3o mant\u00e9m nomes hist\u00f3ricos do movimento negro em posi\u00e7\u00e3o de destaque \u2014 a candidata ao Senado \u00e9 um deles. O PSOL\u00b7Rede est\u00e1 no mesmo patamar de \u00eanfase. O PSB apoia; o PDT apoia sem protagonismo."
   },
-  {
-    eixo: "Religi\u00e3o \u00b7 Di\u00e1logo", escopo: "ambos",
-    texto: "A esquerda deve se aproximar das igrejas evang\u00e9licas, mesmo que isso exija suavizar o discurso em temas de costumes.",
-    pos: { PT: 1, PSB: 1, PDT: 1, PSOL: -2 },
-    just: "\u00c9 a aposta de Lula e da maioria do campo para disputar um eleitorado decisivo \u2014 PSB e PDT t\u00eam quadros crist\u00e3os \u00e0 vontade nesse di\u00e1logo. O PSOL\u00b7Rede dialoga com as periferias evang\u00e9licas, mas se recusa a ceder em pautas de direitos."
-  },
-
-  /* ---------- educa\u00e7\u00e3o ---------- */
   {
     eixo: "Educa\u00e7\u00e3o \u00b7 Ensino m\u00e9dio", escopo: "federal",
-    texto: "A reforma do ensino m\u00e9dio deveria ser revogada por completo, e n\u00e3o apenas ajustada.",
-    ctx: "A reforma de 2017 reduziu as disciplinas obrigat\u00f3rias e criou \u201citiner\u00e1rios\u201d de escolha. Em 2024, o governo aprovou ajustes, mantendo a estrutura.",
+    texto: "Quero um deputado que trabalhe para revogar por completo a reforma do ensino m\u00e9dio, e n\u00e3o apenas para corrigir seus defeitos.",
+    ctx: "A reforma de 2017 reduziu as disciplinas obrigat\u00f3rias e criou percursos de escolha; em 2024 o Congresso aprovou ajustes, mantendo a estrutura.",
     pos: { PT: 0, PSB: -1, PDT: 0, PSOL: 2 },
-    just: "O PSOL\u00b7Rede e entidades estudantis pediram revoga\u00e7\u00e3o total. O governo do PT preferiu corrigir sem derrubar. No PSB, Tabata Amaral foi defensora p\u00fablica da reforma ajustada. O PDT n\u00e3o tem linha \u00fanica."
-  },
-  {
-    eixo: "Educa\u00e7\u00e3o \u00b7 Tempo integral", escopo: "estadual",
-    texto: "O pr\u00f3ximo governo do estado deveria fazer da escola p\u00fablica em tempo integral \u2014 na linha dos antigos CIEPs \u2014 sua marca principal.",
-    ctx: "Os CIEPs (\u201cBrizol\u00f5es\u201d) foram escolas de turno integral criadas nos governos Brizola, com projeto de Darcy Ribeiro e Niemeyer.",
-    pos: { PT: 1, PSB: 0, PDT: 2, PSOL: 1 },
-    just: "\u00c9 o patrim\u00f4nio simb\u00f3lico m\u00e1ximo do PDT fluminense. A federa\u00e7\u00e3o do PT e o PSOL\u00b7Rede apoiam o tempo integral por outras vias; o PSB p\u00f5e sua \u00eanfase educacional no plano federal, em ci\u00eancia e tecnologia."
+    just: "O PSOL\u00b7Rede e as entidades estudantis pediram revoga\u00e7\u00e3o total. O governo do PT preferiu corrigir sem derrubar. No PSB, a parlamentar mais identificada com a \u00e1rea foi defensora p\u00fablica da reforma ajustada. O PDT n\u00e3o tem linha \u00fanica no tema."
   },
 
-  /* ---------- estrat\u00e9gia e estilo ---------- */
+  /* ============ estilo de mandato ============ */
   {
-    eixo: "Estrat\u00e9gia \u00b7 Gest\u00e3o", escopo: "ambos",
-    texto: "A esquerda ganha mais elei\u00e7\u00f5es provando que governa bem \u2014 servi\u00e7os funcionando, contas em dia \u2014 do que levantando bandeiras de transforma\u00e7\u00e3o radical.",
+    eixo: "Estilo \u00b7 Gest\u00e3o", escopo: "ambos",
+    texto: "Prefiro que meu voto eleja quem se dedica a fazer a m\u00e1quina p\u00fablica funcionar a quem se dedica a levantar bandeiras de transforma\u00e7\u00e3o.",
     pos: { PT: 1, PSB: 1, PDT: 2, PSOL: -2 },
-    just: "\u00c9 a tese-s\u00edntese do PDT fluminense, com Niter\u00f3i (Rodrigo Neves) como vitrine. PT\u00b7PCdoB\u00b7PV e PSB equilibram gest\u00e3o e bandeira. O PSOL\u00b7Rede inverte a ordem: sem disputar o rumo da sociedade, governar bem seria s\u00f3 administrar o problema."
+    just: "\u00c9 a tese central do PDT fluminense, que exibe uma prefeitura bem avaliada na regi\u00e3o metropolitana como prova de conceito. PT\u00b7PCdoB\u00b7PV e PSB equilibram gest\u00e3o e bandeira. O PSOL\u00b7Rede inverte a ordem: sem disputar o rumo da sociedade, administrar bem seria s\u00f3 gerir o problema."
   },
   {
-    eixo: "Movimentos sociais", escopo: "ambos",
-    texto: "Ocupa\u00e7\u00f5es de terrenos e pr\u00e9dios abandonados por movimentos de moradia s\u00e3o formas leg\u00edtimas de press\u00e3o pol\u00edtica.",
-    ctx: "O Rio tem milhares de im\u00f3veis vazios em \u00e1reas centrais e um d\u00e9ficit habitacional grande \u2014 da\u00ed as ocupa\u00e7\u00f5es organizadas.",
-    pos: { PT: 1, PSB: 0, PDT: 0, PSOL: 2 },
-    just: "O PSOL\u00b7Rede nasceu e vive junto desses movimentos. A federa\u00e7\u00e3o do PT \u00e9 aliada hist\u00f3rica, moderada pelo exerc\u00edcio do governo. PSB e PDT mant\u00eam dist\u00e2ncia institucional."
-  },
-  {
-    eixo: "Economia \u00b7 Setor privado", escopo: "ambos",
-    texto: "Parcerias com empresas privadas \u2014 concess\u00f5es e PPPs \u2014 s\u00e3o bem-vindas para tocar servi\u00e7os e obras p\u00fablicas.",
-    ctx: "Na PPP (parceria p\u00fablico-privada), a empresa constr\u00f3i ou opera o servi\u00e7o e o governo paga ou concede a explora\u00e7\u00e3o por contrato.",
-    pos: { PT: 0, PSB: 2, PDT: 1, PSOL: -2 },
-    just: "O PSB \u00e9 o mais amig\u00e1vel ao setor privado do campo (a agenda industrial de Alckmin \u00e9 o s\u00edmbolo). O PDT usa o instrumento em Niter\u00f3i. A federa\u00e7\u00e3o do PT aceita caso a caso. O PSOL\u00b7Rede v\u00ea privatiza\u00e7\u00e3o disfar\u00e7ada e prefere o servi\u00e7o 100% p\u00fablico."
-  },
-  {
-    eixo: "Estilo de mandato", escopo: "ambos",
-    texto: "Prefiro deputados que estejam nas ruas com os movimentos e fa\u00e7am barulho a deputados discretos que negociam nos bastidores.",
+    eixo: "Estilo \u00b7 Rua e bastidor", escopo: "ambos",
+    texto: "Prefiro um deputado que esteja nas ruas com os movimentos e fa\u00e7a barulho p\u00fablico a um que seja discreto e eficaz nos bastidores.",
     pos: { PT: 0, PSB: -1, PDT: 0, PSOL: 2 },
-    just: "O mandato-ativista \u00e9 a assinatura do PSOL\u00b7Rede carioca (Tarc\u00edsio Motta, Tal\u00edria Petrone, Renata Souza \u2014 e o legado de Marielle Franco). O PSB cultiva o perfil t\u00e9cnico-institucional. A federa\u00e7\u00e3o do PT e o PDT combinam os dois registros."
+    just: "O mandato-ativista \u00e9 a assinatura do PSOL\u00b7Rede carioca, herdeiro direto da trajet\u00f3ria de Marielle Franco. O PSB cultiva o perfil t\u00e9cnico-institucional. A federa\u00e7\u00e3o do PT e o PDT combinam os dois registros conforme o parlamentar."
   },
   {
-    eixo: "Estilo \u00b7 Emendas", escopo: "ambos",
-    texto: "Deputado bom \u00e9 o que traz verbas e obras para a sua regi\u00e3o \u2014 mesmo que isso signifique jogar o jogo das emendas parlamentares.",
-    ctx: "Emendas s\u00e3o fatias do or\u00e7amento que cada parlamentar direciona; viraram a principal moeda pol\u00edtica do Congresso.",
-    pos: { PT: 1, PSB: 0, PDT: 1, PSOL: -2 },
-    just: "As m\u00e1quinas territoriais do campo (como a do PT na Baixada, constru\u00edda por Quaqu\u00e1) operam nessa l\u00f3gica sem constrangimento. O PSOL\u00b7Rede usa emendas, mas denuncia o or\u00e7amento como moeda de troca \u2014 foi voz contra o chamado or\u00e7amento secreto."
+    eixo: "Estilo \u00b7 Movimentos", escopo: "ambos",
+    texto: "Quero um deputado que apoie abertamente ocupa\u00e7\u00f5es de pr\u00e9dios e terrenos vazios por movimentos de moradia, mesmo quando a Justi\u00e7a manda desocupar.",
+    ctx: "O Rio combina milhares de im\u00f3veis ociosos em \u00e1reas centrais com um dos maiores d\u00e9ficits de moradia do pa\u00eds.",
+    pos: { PT: 0, PSB: -1, PDT: -1, PSOL: 2 },
+    just: "O PSOL\u00b7Rede nasceu junto desses movimentos e comparece \u00e0s ocupa\u00e7\u00f5es. A federa\u00e7\u00e3o do PT \u00e9 aliada hist\u00f3rica, mas modera quando est\u00e1 no governo \u2014 ainda assim leva nomes ligados a movimentos de terra na chapa estadual. PSB e PDT mant\u00eam dist\u00e2ncia institucional."
+  },
+  {
+    eixo: "Renova\u00e7\u00e3o \u00b7 Sobrenomes", escopo: "ambos",
+    texto: "Fa\u00e7o quest\u00e3o de que meu voto v\u00e1 para quem construiu trajet\u00f3ria pr\u00f3pria, e n\u00e3o para herdeiros de fam\u00edlias pol\u00edticas ou apadrinhados de caciques.",
+    pos: { PT: -1, PSB: -2, PDT: 0, PSOL: 1 },
+    just: "A dire\u00e7\u00e3o nacional do PSB \u00e9 exercida por herdeiro de uma das maiores dinastias pol\u00edticas do pa\u00eds. Na federa\u00e7\u00e3o do PT, a distribui\u00e7\u00e3o de n\u00fameros de urna a um filho de cacique gerou nota p\u00fablica de repulsa de outros pr\u00e9-candidatos na v\u00e9spera da conven\u00e7\u00e3o. O PSOL\u00b7Rede tem a maior propor\u00e7\u00e3o de trajet\u00f3rias vindas de movimentos e do trabalho precarizado."
   },
 
-  /* ---------- Rio de Janeiro ---------- */
+  /* ============ Rio de Janeiro ============ */
   {
-    eixo: "Rio 2026 \u00b7 Governo do estado", escopo: "estadual",
-    texto: "Apoiar Eduardo Paes para governador \u00e9 o caminho certo para a esquerda fluminense em 2026.",
-    ctx: "Paes \u00e9 do PSD, partido de centro. A federa\u00e7\u00e3o do PT e o PDT est\u00e3o oficialmente no bloco dele; o PSOL lan\u00e7a candidatura pr\u00f3pria; o PSB ficou fora da chapa majorit\u00e1ria.",
-    pos: { PT: 2, PSB: 0, PDT: 2, PSOL: -2 },
-    just: "O diret\u00f3rio do PT aprovou o apoio por unanimidade, com Benedita da Silva na chapa ao Senado. O PDT est\u00e1 no mesmo bloco. O PSOL\u00b7Rede v\u00ea a\u00ed dilui\u00e7\u00e3o do projeto de esquerda e disputa por fora. O PSB negocia sem lugar definido."
+    eixo: "Rio \u00b7 Frente ampla", escopo: "estadual",
+    texto: "Para derrotar a extrema direita no Rio, aceito que meu partido apoie um candidato a governador de centro, mesmo abrindo m\u00e3o de defender o pr\u00f3prio programa.",
+    ctx: "Na disputa estadual de 2026, parte da esquerda se aliou a uma candidatura de centro favorita nas pesquisas, e parte lan\u00e7ou candidatura pr\u00f3pria.",
+    pos: { PT: 2, PSB: 2, PDT: 2, PSOL: -2 },
+    just: "PT\u00b7PCdoB\u00b7PV, PDT e PSB homologaram em conven\u00e7\u00e3o o apoio a Eduardo Paes (PSD), numa coliga\u00e7\u00e3o que vai do MDB \u00e0 esquerda. O PSOL\u00b7Rede seguiu com chapa pr\u00f3pria \u2014 William Siri ao governo e M\u00f4nica Ben\u00edcio ao Senado \u2014 e \u00e9 hoje a \u00fanica oposi\u00e7\u00e3o de esquerda ao favorito."
   },
   {
-    eixo: "Rio \u00b7 Estrat\u00e9gia eleitoral", escopo: "estadual",
-    texto: "Mesmo com poucas chances de vit\u00f3ria, a esquerda deve lan\u00e7ar candidaturas pr\u00f3prias aos cargos majorit\u00e1rios, para manter seu projeto vivo.",
-    ctx: "A alternativa \u00e9 entrar em frentes amplas com o centro \u2014 como o bloco de Paes \u2014 abrindo m\u00e3o de cabe\u00e7a de chapa.",
-    pos: { PT: -1, PSB: 1, PDT: -1, PSOL: 2 },
-    just: "\u00c9 a doutrina do PSOL\u00b7Rede em 2026 \u2014 e tamb\u00e9m o padr\u00e3o recente do PSB fluminense, que insistiu em nome pr\u00f3prio ao Senado em 2022 (Molon) contra a orienta\u00e7\u00e3o do resto do campo. PT e PDT apostam na frente ampla."
+    eixo: "Alerj \u00b7 Base ou oposi\u00e7\u00e3o", escopo: "estadual",
+    texto: "Prefiro eleger um deputado estadual que integre a base do governador, para ter for\u00e7a de negocia\u00e7\u00e3o e recursos, a um que fique na oposi\u00e7\u00e3o.",
+    pos: { PT: 1, PSB: 1, PDT: 2, PSOL: -2 },
+    just: "Com o favorito \u00e0 frente, os tr\u00eas partidos aliados disputam vagas j\u00e1 como base do pr\u00f3ximo governo, e o PDT \u00e9 o mais vocacionado a esse papel. O PSOL\u00b7Rede se apresenta como a oposi\u00e7\u00e3o de esquerda na Alerj, com custo assumido em recursos e cargos."
   },
   {
     eixo: "Seguran\u00e7a \u00b7 Opera\u00e7\u00f5es", escopo: "estadual",
-    texto: "Grandes opera\u00e7\u00f5es policiais em favelas \u2014 com blindados e helic\u00f3pteros \u2014 devem ser fortemente restringidas, porque matam inocentes e n\u00e3o desmontam o crime.",
-    ctx: "Uma a\u00e7\u00e3o no STF conhecida como \u201cADPF das Favelas\u201d, apresentada pelo PSB, imp\u00f4s condi\u00e7\u00f5es a essas opera\u00e7\u00f5es no Rio.",
+    texto: "Quero um deputado que trabalhe para restringir as grandes opera\u00e7\u00f5es policiais em favelas, mesmo que seja acusado de atrapalhar o combate ao crime.",
+    ctx: "Uma decis\u00e3o do Supremo imp\u00f5e condi\u00e7\u00f5es a essas opera\u00e7\u00f5es no Rio \u2014 c\u00e2meras, per\u00edcia, restri\u00e7\u00e3o a helic\u00f3pteros \u2014 e \u00e9 objeto de disputa permanente na Alerj.",
     pos: { PT: 1, PSB: 2, PDT: 0, PSOL: 2 },
-    just: "PSB (autor da ADPF) e PSOL\u00b7Rede (que fez do controle da letalidade uma raz\u00e3o de exist\u00eancia no Rio) convergem no ponto mais alto. A federa\u00e7\u00e3o do PT acompanha via PEC da Seguran\u00e7a. O PDT de Martha Rocha aceita opera\u00e7\u00f5es \u2014 desde que guiadas por intelig\u00eancia."
-  },
-  {
-    eixo: "Seguran\u00e7a \u00b7 Desmilitariza\u00e7\u00e3o", escopo: "estadual",
-    texto: "A Pol\u00edcia Militar deveria deixar de ser militar: virar uma carreira policial civil \u00fanica, com forma\u00e7\u00e3o voltada \u00e0 prote\u00e7\u00e3o do cidad\u00e3o.",
-    ctx: "Desmilitarizar n\u00e3o \u00e9 extinguir a pol\u00edcia: \u00e9 mudar sua estrutura, hoje espelhada no Ex\u00e9rcito (hierarquia, regulamento e justi\u00e7a militares).",
-    pos: { PT: 1, PSB: 1, PDT: -1, PSOL: 2 },
-    just: "Bandeira hist\u00f3rica do PSOL\u00b7Rede. Tem defensores antigos na federa\u00e7\u00e3o do PT \u2014 o pr\u00f3prio Lindbergh Farias j\u00e1 prop\u00f4s emenda constitucional nesse sentido \u2014 sem ser consenso. No PDT de Martha Rocha, ex-chefe da Pol\u00edcia Civil, a prioridade \u00e9 reformar por dentro, n\u00e3o desmilitarizar."
+    just: "A a\u00e7\u00e3o que originou essas regras foi proposta pelo PSB, e o PSOL\u00b7Rede fez do controle da letalidade policial sua raz\u00e3o de exist\u00eancia no estado. A federa\u00e7\u00e3o do PT acompanha por via institucional. O PDT aceita opera\u00e7\u00f5es desde que guiadas por intelig\u00eancia, e evita a bandeira restritiva."
   },
   {
     eixo: "Seguran\u00e7a \u00b7 Pol\u00edcias", escopo: "estadual",
-    texto: "Aumentar sal\u00e1rio, equipamento e apoio aos policiais deve ser prioridade t\u00e3o importante quanto punir abusos.",
+    texto: "Quero um deputado que trate sal\u00e1rio, equipamento e apoio aos policiais como prioridade t\u00e3o urgente quanto a puni\u00e7\u00e3o de abusos.",
     pos: { PT: 1, PSB: 0, PDT: 2, PSOL: -1 },
-    just: "\u00c9 a linha Martha Rocha (PDT): valorizar a carreira policial e investir em per\u00edcia e investiga\u00e7\u00e3o. O PSOL\u00b7Rede n\u00e3o nega sal\u00e1rios, mas prioriza desmilitariza\u00e7\u00e3o e controle externo \u2014 outra ordem de urg\u00eancias."
+    just: "\u00c9 a linha do PDT fluminense, que tem entre seus quadros de refer\u00eancia uma ex-chefe da Pol\u00edcia Civil e defende valorizar a carreira e investir em per\u00edcia. O PSOL\u00b7Rede n\u00e3o nega sal\u00e1rios, mas p\u00f5e controle externo e desmilitariza\u00e7\u00e3o antes disso na fila."
   },
   {
-    eixo: "Rio \u00b7 Saneamento", escopo: "estadual",
-    texto: "A concess\u00e3o da Cedae \u00e0 iniciativa privada foi um erro: \u00e1gua e esgoto deveriam voltar a ser servi\u00e7os 100% estatais.",
-    ctx: "Em 2021, o governo estadual leiloou a distribui\u00e7\u00e3o de \u00e1gua e esgoto da Cedae para empresas privadas, por blocos de munic\u00edpios.",
-    pos: { PT: 1, PSB: 0, PDT: 1, PSOL: 2 },
-    just: "O PSOL\u00b7Rede foi a oposi\u00e7\u00e3o mais vocal ao leil\u00e3o e defende reverter o modelo. PT e PDT criticaram a concess\u00e3o, mas tratam a revers\u00e3o com pragmatismo contratual. O PSB, mais aberto a parcerias, n\u00e3o faz da reestatiza\u00e7\u00e3o uma bandeira."
+    eixo: "Seguran\u00e7a \u00b7 Estrutura", escopo: "estadual",
+    texto: "Quero um deputado que trabalhe para acabar com a estrutura militar da PM, transformando-a em carreira policial civil.",
+    ctx: "Desmilitarizar n\u00e3o \u00e9 extinguir a pol\u00edcia: \u00e9 mudar a estrutura hoje espelhada no Ex\u00e9rcito, com hierarquia, regulamento e justi\u00e7a pr\u00f3prios.",
+    pos: { PT: 1, PSB: 1, PDT: -1, PSOL: 2 },
+    just: "Bandeira hist\u00f3rica do PSOL\u00b7Rede. Tem defensores antigos na federa\u00e7\u00e3o do PT \u2014 um dos cabe\u00e7as de chapa \u00e0 C\u00e2mara j\u00e1 apresentou proposta nesse sentido \u2014 sem ser consenso, e o PSB acompanha. No PDT, com sua base policial, a prioridade \u00e9 reformar por dentro."
+  },
+  {
+    eixo: "Educa\u00e7\u00e3o \u00b7 Estado", escopo: "estadual",
+    texto: "Quero um deputado que fa\u00e7a da escola estadual de turno integral \u2014 com refei\u00e7\u00f5es, esporte e cultura no mesmo pr\u00e9dio \u2014 a principal prioridade de or\u00e7amento do pr\u00f3ximo governo.",
+    pos: { PT: 1, PSB: 0, PDT: 2, PSOL: 1 },
+    just: "\u00c9 o patrim\u00f4nio simb\u00f3lico e o projeto de origem do PDT no estado, ainda hoje sua principal proposta educacional. PT\u00b7PCdoB\u00b7PV e PSOL\u00b7Rede apoiam o turno integral por outras vias; o PSB concentra sua \u00eanfase educacional no plano federal."
+  },
+  {
+    eixo: "Servi\u00e7os \u00b7 \u00c1gua e esgoto", escopo: "estadual",
+    texto: "Quero um deputado que trabalhe para reverter a entrega da \u00e1gua e do esgoto \u00e0 iniciativa privada, mesmo que a revers\u00e3o custe indeniza\u00e7\u00f5es ao estado.",
+    ctx: "Em 2021 o estado leiloou a distribui\u00e7\u00e3o de \u00e1gua e esgoto a empresas privadas, por blocos de munic\u00edpios, com contratos de d\u00e9cadas.",
+    pos: { PT: 1, PSB: -1, PDT: 1, PSOL: 2 },
+    just: "O PSOL\u00b7Rede foi a oposi\u00e7\u00e3o mais vocal ao leil\u00e3o e defende reverter o modelo. PT e PDT criticaram a concess\u00e3o, mas tratam a revers\u00e3o com pragmatismo contratual. O PSB, o mais aberto a parcerias com o setor privado, n\u00e3o encampa a revers\u00e3o."
+  },
+  {
+    eixo: "Servi\u00e7os \u00b7 Parcerias", escopo: "ambos",
+    texto: "Aceito que servi\u00e7os p\u00fablicos sejam tocados por empresas privadas contratadas pelo poder p\u00fablico, desde que funcionem melhor.",
+    ctx: "\u00c9 o modelo das parcerias p\u00fablico-privadas: a empresa constr\u00f3i ou opera, e o governo paga ou concede a explora\u00e7\u00e3o por contrato longo.",
+    pos: { PT: 0, PSB: 2, PDT: 1, PSOL: -2 },
+    just: "O PSB \u00e9 o mais amig\u00e1vel ao setor privado do campo, com uma agenda nacional de parceria com a ind\u00fastria. O PDT usa o instrumento onde governa. A federa\u00e7\u00e3o do PT decide caso a caso. O PSOL\u00b7Rede v\u00ea privatiza\u00e7\u00e3o disfar\u00e7ada e prefere o servi\u00e7o inteiramente p\u00fablico."
+  },
+  {
+    eixo: "Ambiente \u00b7 Alerj", escopo: "estadual",
+    texto: "Quero um deputado que barre empreendimentos com impacto ambiental no estado, mesmo quando eles prometem empregos e arrecada\u00e7\u00e3o.",
+    pos: { PT: 1, PSB: 2, PDT: 0, PSOL: 2 },
+    just: "O PSB leva \u00e0 Alerj o parlamentar mais identificado com a fiscaliza\u00e7\u00e3o ambiental no estado, e o PSOL\u00b7Rede tem na federa\u00e7\u00e3o um partido nascido do ambientalismo. Na federa\u00e7\u00e3o do PT convivem o PV e a ala desenvolvimentista. O PDT tende a priorizar emprego e investimento."
   }
 ];
 
@@ -482,7 +497,7 @@ function renderResultados() {
         "Lembre que o voto proporcional é indivisível dentro da federação: ele pode eleger candidato de qualquer sigla federada. " +
         "Entre campos do mesmo lado, margens estreitas são esperadas — nesses casos, compare também os candidatos."
       : "Seus rankings divergem entre as câmaras: " + lf.sigla + " lidera no federal e " +
-        le.sigla + " no estadual — plausível, já que os temas fluminenses (apoio a Paes, operações policiais, modelo de gestão) dividem a esquerda de outro jeito que os nacionais. " +
+        le.sigla + " no estadual — plausível, já que as escolhas fluminenses (frente ampla, doutrina de segurança, papel na Alerj) dividem a esquerda de outro jeito que as nacionais. " +
         "Lembre que o voto proporcional é indivisível dentro da federação, e margens estreitas pedem comparação de candidatos.";
   } else {
     leitura.textContent = "";
@@ -496,7 +511,7 @@ function renderResultados() {
     "Teste de afinidade — esquerdas RJ 2026 (PT·PCdoB·PV, PSB, PDT, PSOL·Rede)\n" +
     "Deputado federal:  " + (fed.respondidas ? linha(fed) : "sem respostas") + "\n" +
     "Deputado estadual: " + (est.respondidas ? linha(est) : "sem respostas") + "\n" +
-    "Posições codificadas com corte em 20/07/2026. Ferramenta informativa; não é recomendação de voto.";
+    "Posições codificadas com corte em 03/08/2026. Ferramenta informativa; não é recomendação de voto.";
 }
 
 $("btn-copiar").addEventListener("click", async (ev) => {
